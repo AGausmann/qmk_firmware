@@ -70,17 +70,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * | Esc  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Bksp |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Tab  |      |      |      |      |      |      |  `   |  -   |  =   |  '   |Enter |
+ * | Tab  |      |      | Back | Fwd  |      |      |  `   |  -   |  =   |  '   |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |Shift |      |      |      |      |      |      |      |  [   |  ]   |  \   |Shift |
+ * |Shift |      | Mute | Vol- | Vol+ |      |      |      |  [   |  ]   |  \   |Shift |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Ctrl |Super | Alt  |      |Lower |Space |Space | Raise |      | Alt  |Super | Ctrl |
+ * | Ctrl |Super | Alt  |      |Lower |Space |Space |Raise |      | Alt  |Super | Ctrl |
  * `-----------------------------------------------------------------------------------'
  */
 [_RAISE] = {
   {KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC},
-  {KC_TAB,  _______, _______, _______, _______, _______, _______, KC_GRV,  KC_MINS, KC_EQL,  KC_QUOT, KC_ENT },
-  {KC_LSFT, _______, _______, _______, _______, _______, _______, _______, KC_LBRC, KC_RBRC, KC_BSLS, KC_RSFT},
+  {KC_TAB,  _______, _______, KC_WBAK, KC_WFWD, _______, _______, KC_GRV,  KC_MINS, KC_EQL,  KC_QUOT, KC_ENT },
+  {KC_LSFT, _______, KC_MUTE, KC_VOLD, KC_VOLU, _______, _______, _______, KC_LBRC, KC_RBRC, KC_BSLS, KC_RSFT},
   {KC_LCTL, KC_LGUI, KC_LALT, _______, LOWER,   KC_SPC,  KC_SPC,  RAISE,   _______, KC_RALT, KC_RGUI, KC_RCTL}
 },
 
