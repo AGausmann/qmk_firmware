@@ -4,6 +4,7 @@
 #include "planck.h"
 #include "action_layer.h"
 #include "eeconfig.h"
+#include "rgblight.h"
 
 extern keymap_config_t keymap_config;
 
@@ -110,6 +111,28 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
   }
   return true;
+}
+
+void led_set_user(uint8_t usb_led) {
+
+#ifdef RGBLIGHT_ENABLE
+    uint8_t r = 0;
+    uint8_t g = 0;
+    uint8_t b = 0;
+
+    if (usb_led & (1 << USB_LED_NUM_LOCK)) {
+        r = 255;
+    }
+    if (usb_led & (1 << USB_LED_CAPS_LOCK)) {
+        g = 255;
+    }
+    if (usb_led & (1 << USB_LED_SCROLL_LOCK)) {
+        b = 255;
+    }
+
+    rgblight_indicator_setrgb(0, r, g, b);
+    rgblight_set();
+#endif
 }
 
 void matrix_init_user(void) {
