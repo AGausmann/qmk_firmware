@@ -101,6 +101,10 @@ void rgblight_decrease_val(void);
 void rgblight_sethsv(uint16_t hue, uint8_t sat, uint8_t val);
 void rgblight_setrgb(uint8_t r, uint8_t g, uint8_t b);
 
+void rgblight_indicator_setrgb(uint8_t i, uint8_t r, uint8_t g, uint8_t b);
+void rgblight_indicator_reset(uint8_t i);
+void rgblight_indicator_reset_all(void);
+
 uint32_t eeconfig_read_rgblight(void);
 void eeconfig_update_rgblight(uint32_t val);
 void eeconfig_update_rgblight_default(void);

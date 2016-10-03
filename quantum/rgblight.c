@@ -364,6 +364,26 @@ void rgblight_setrgb(uint8_t r, uint8_t g, uint8_t b) {
   rgblight_set();
 }
 
+void rgblight_indicator_setrgb(uint8_t i, uint8_t r, uint8_t g, uint8_t b) {
+  led[i].r = r;
+  led[i].g = g;
+  led[i].b = b;
+}
+
+void rgblight_indicator_reset(uint8_t i) {
+    led[i].r = 0;
+    led[i].g = 0;
+    led[i].b = 0;
+}
+
+void rgblight_indicator_reset_all(void) {
+  for (uint8_t i = 0; i < RGBLED_NUM; i++) {
+      led[i].r = 0;
+      led[i].g = 0;
+      led[i].b = 0;
+  }
+}
+
 __attribute__ ((weak))
 void rgblight_set(void) {
   if (rgblight_config.enable) {
