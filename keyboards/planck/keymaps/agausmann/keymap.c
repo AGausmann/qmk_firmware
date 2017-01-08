@@ -4,7 +4,10 @@
 #include "planck.h"
 #include "action_layer.h"
 #include "eeconfig.h"
+#ifdef RGBLIGHT_ENABLE
+#define RGBLED_NUM 1
 #include "rgblight.h"
+#endif
 
 extern keymap_config_t keymap_config;
 
