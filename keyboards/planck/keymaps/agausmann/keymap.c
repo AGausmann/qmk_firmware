@@ -24,9 +24,11 @@ extern keymap_config_t keymap_config;
 #define ADJUST_MAP 20
 
 enum planck_keycodes {
-  CK_GAME = TG(GAMING_MAP),
+  CK_DFLT = TO(DEFAULT_MAP),
+  CK_GAME = TO(GAMING_MAP),
   CK_DNUM = MO(DEFAULT_NUMPAD_MAP),
   CK_GNUM = MO(GAMING_NUMPAD_MAP),
+  CK_ADJ = MO(ADJUST_MAP),
   CK_LOW = SAFE_RANGE,
   CK_RAS,
 };
@@ -40,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC},
   {KC_CAPS, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT },
   {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT},
-  {KC_LCTL, KC_LGUI, KC_LALT, CK_DNUM, CK_LOW,  KC_SPC,  KC_SPC,  CK_RAS,  CK_GAME, KC_RALT, KC_RGUI, KC_RCTL}
+  {KC_LCTL, KC_LGUI, KC_LALT, CK_DNUM, CK_LOW,  KC_SPC,  KC_SPC,  CK_RAS,  XXXXXXX, KC_RALT, KC_RGUI, KC_RCTL}
 },
 
 [LOWER_MAP] = {
@@ -68,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC},
   {KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT },
   {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_UP  },
-  {KC_LCTL, _______, KC_LALT, _______, CK_GNUM, KC_SPC,  KC_B,    KC_GRV,  CK_GAME, KC_LEFT, KC_RGHT, KC_DOWN}
+  {KC_LCTL, XXXXXXX, KC_LALT, XXXXXXX, CK_GNUM, KC_SPC,  KC_B,    CK_ADJ,  KC_GRV,  KC_LEFT, KC_RGHT, KC_DOWN}
 },
 [GAMING_NUMPAD_MAP] = {
   {_______, _______, KC_1,    KC_2,    KC_3,    _______, _______, _______, _______, _______, _______, _______},
@@ -79,7 +81,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [ADJUST_MAP] = {
   {RESET,   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______},
-  {_______, _______, _______, _______, _______, _______, _______, BL_INC,  BL_DEC,  _______, _______, _______},
+  {_______, _______, _______, BL_DEC,  BL_INC,  _______, _______, CK_DFLT, CK_GAME, _______, _______, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
 }
