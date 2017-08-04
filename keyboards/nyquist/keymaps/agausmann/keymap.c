@@ -1,6 +1,9 @@
 #include "nyquist.h"
 #include "action_layer.h"
 #include "eeconfig.h"
+#ifdef RGBLIGHT_ENABLE
+#include "rgblight.h"
+#endif
 
 extern keymap_config_t keymap_config;
 
@@ -107,10 +110,47 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
+uint8_t topmost_layer_get(void) {
+  for (int i = 0; i < 32; i++) {
+    if (layer_state >> i == 1) {
+      return i;
+    }
+  }
+
+  return 0;
+}
 
 void persistent_default_layer_set(uint16_t default_layer) {
   eeconfig_update_default_layer(default_layer);
   default_layer_set(default_layer);
+}
+
+void matrix_scan_user(void) {
+  #ifdef RGBLIGHT_ENABLE
+
+  static uint8_t old_layer = 0;
+  uint8_t new_layer = topmost_layer_get();
+
+  if (old_layer != new_layer) {
+    switch (new_layer) {
+      case DEFAULT_LAYER:
+        rgblight_setrgb(0x00, 0x00, 0xFF);
+        break;
+      case LOWER_LAYER:
+        rgblight_setrgb(0x7F, 0x00, 0xFF);
+        break;
+      case RAISE_LAYER:
+        rgblight_setrgb(0x00, 0x7F, 0xFF);
+        break;
+      case SETUP_LAYER:
+        rgblight_setrgb(0xFF, 0x00, 0xFF);
+        break;
+    }
+  }
+
+  old_layer = new_layer;
+
+  #endif //RGBLIGHT_ENABLE
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
