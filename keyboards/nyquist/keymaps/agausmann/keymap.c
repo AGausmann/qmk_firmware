@@ -152,10 +152,10 @@ void persistent_default_layer_set(uint16_t default_layer) {
 void matrix_scan_user(void) {
   #ifdef RGBLIGHT_ENABLE
 
-  static uint8_t old_layer = 0;
-  uint8_t new_layer = biton32(layer_state)
+  static uint8_t old_layer = 255;
+  uint8_t new_layer = biton32(layer_state);
 
-  if (old_layer != new_layer) {n
+  if (old_layer != new_layer) {
     switch (new_layer) {
       case DEFAULT_LAYER:
         rgblight_setrgb(0x00, 0x00, 0xFF);
