@@ -34,4 +34,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #undef RGBLED_NUM
 #define RGBLED_NUM 10
 
+#define MIDI_ADVANCED
+#define MIDI_TONE_KEYCODE_OCTAVES 1
+
 #endif
