@@ -19,8 +19,8 @@ extern keymap_config_t keymap_config;
 
 enum custom_keycodes {
   CK_BACK = TO(DEFAULT_LAYER),
-  CK_LOW = OSL(LOWER_LAYER),
-  CK_RAS = OSL(RAISE_LAYER),
+  CK_LOW = MO(LOWER_LAYER),
+  CK_RAS = MO(RAISE_LAYER),
   CK_MIDI = TG(MIDI_LAYER),
   CK_GAME = TG(GAMING_LAYER),
   CK_GNUM = OSL(GAMING_NUMPAD_LAYER),
