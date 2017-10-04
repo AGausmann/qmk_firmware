@@ -14,6 +14,7 @@ enum planck_layers {
   NUMPAD_MAP,
   GAMING_MAP,
   NUMBER_MAP,
+  PLOVER_MAP,
   SETUP_MAP
 };
 
@@ -21,11 +22,13 @@ enum planck_keycodes {
   CK_NUM = MO(NUMBER_MAP),
   CK_DFLT = TO(DEFAULT_MAP),
   CK_GAME = TO(GAMING_MAP),
+  CK_PLV = TO(PLOVER_MAP),
   CK_RSE = SFT_T(KC_ENTER),
   CK_RCR = CTL_T(KC_RIGHT),
   CK_RGU = GUI_T(KC_UP),
   CK_RAD = ALT_T(KC_DOWN),
   CK_NPL = LT(NUMPAD_MAP, KC_LEFT),
+  CK_SET = MO(SETUP_MAP),
   CK_LOW = SAFE_RANGE,
   CK_RAS
 };
@@ -40,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC},
   {KC_CLCK, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT},
   {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, CK_RSE },
-  {KC_LCTL, KC_LGUI, KC_LALT, CK_GAME, CK_LOW,  KC_SPC,  KC_SPC,  CK_RAS,  CK_NPL,  CK_RAD,  CK_RGU,  CK_RCR }
+  {KC_LCTL, KC_LGUI, KC_LALT, _______, CK_LOW,  KC_SPC,  KC_SPC,  CK_RAS,  CK_NPL,  CK_RAD,  CK_RGU,  CK_RCR }
 },
 
 [LOWER_MAP] = {
@@ -68,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_HOME, KC_UP,   KC_END,  KC_PGUP, KC_BSPC},
   {KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, KC_ENT },
   {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_TILD},
-  {KC_LCTL, XXXXXXX, KC_LALT, CK_DFLT, CK_NUM,  KC_SPC,  KC_BSLS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX}
+  {KC_LCTL, XXXXXXX, KC_LALT, CK_SET,  CK_NUM,  KC_SPC,  KC_BSLS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX}
 },
 
 [NUMBER_MAP] = {
@@ -78,13 +81,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
 },
 
+[PLOVER_MAP] = {
+  {KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1   },
+  {XXXXXXX, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC},
+  {XXXXXXX, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT},
+  {CK_SET,  XXXXXXX, XXXXXXX, XXXXXXX, KC_C,    KC_V,    KC_N,    KC_M,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX}
+},
+
 [SETUP_MAP] = {
   {RESET,   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______},
-  {_______, _______, _______, _______, BL_INC,  _______, _______, _______, _______, _______, _______, _______},
+  {_______, _______, _______, _______, BL_INC,  _______, _______, CK_DFLT, CK_GAME, CK_PLV,  _______, _______},
   {_______, _______, _______, _______, BL_DEC,  _______, _______, _______, _______, _______, _______, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
 }
-
 
 };
 
