@@ -34,9 +34,9 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [DEFAULT_LAYER] = KEYMAP( \
-  CK_BACK, _______, CK_MIDI, CK_GAME, CK_SET,  _______, _______, CK_NUM, _______, _______, _______, _______, \
+  CK_BACK, _______, CK_MIDI, CK_GAME, CK_SET,  _______, _______, CK_NUM,  _______, _______, _______, _______, \
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC, \
-  KC_CLCK, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,  \
+  KC_CLCK, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, \
   KC_LCTL, KC_LGUI, KC_LALT, _______, CK_LOW,  KC_ENT,  KC_SPC,  CK_RAS,  _______, KC_RALT, KC_RGUI, KC_RCTL  \
 ),
@@ -67,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [GAMING_LAYER] = KEYMAP( \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-  KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_GRV,  \
+  KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC, \
   KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT,  \
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_UP,   \
   KC_LCTL, XXXXXXX, KC_LALT, CK_GNUM, KC_BSLS, KC_SPC,  KC_SPC,  XXXXXXX, XXXXXXX, KC_LEFT, KC_RGHT, KC_DOWN  \
